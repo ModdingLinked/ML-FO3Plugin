@@ -86,10 +86,8 @@ QList<ExecutableInfo> GameFallout3::executables() const
                                                 ->gameFeature<MOBase::ScriptExtender>()
                                                 ->loaderName()))
          << ExecutableInfo("Fallout 3", findInGameFolder(binaryName()))
-         << ExecutableInfo("Fallout Mod Manager", findInGameFolder("fomm/fomm.exe"))
          << ExecutableInfo("Construction Kit", findInGameFolder("geck.exe"))
          << ExecutableInfo("Fallout Launcher", findInGameFolder(getLauncherName()))
-         << ExecutableInfo("BOSS", findInGameFolder("BOSS/BOSS.exe"))
          << ExecutableInfo("LOOT", QFileInfo(getLootPath()))
                 .withArgument("--game=\"Fallout3\"");
 }
@@ -147,7 +145,6 @@ void GameFallout3::initializeProfile(const QDir& path, ProfileSettings settings)
 
     copyToProfile(myGamesPath(), path, "falloutprefs.ini");
     copyToProfile(myGamesPath(), path, "FalloutCustom.ini");
-    copyToProfile(myGamesPath(), path, "custom.ini");
     copyToProfile(myGamesPath(), path, "GECKCustom.ini");
     copyToProfile(myGamesPath(), path, "GECKPrefs.ini");
   }
@@ -205,7 +202,7 @@ QString GameFallout3::gameNexusName() const
 
 QStringList GameFallout3::iniFiles() const
 {
-  return {"fallout.ini",       "falloutprefs.ini", "custom.ini",
+  return {"fallout.ini",       "falloutprefs.ini",
           "FalloutCustom.ini", "GECKCustom.ini",   "GECKPrefs.ini"};
 }
 
