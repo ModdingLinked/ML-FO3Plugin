@@ -88,6 +88,7 @@ QList<ExecutableInfo> GameFallout3::executables() const
          << ExecutableInfo("Fallout 3", findInGameFolder(binaryName()))
          << ExecutableInfo("Construction Kit", findInGameFolder("geck.exe"))
          << ExecutableInfo("Fallout Launcher", findInGameFolder(getLauncherName()))
+         << ExecutableInfo("Fallout Launcher", findInGameFolder(getLauncherNameAlt()))
          << ExecutableInfo("LOOT", QFileInfo(getLootPath()))
                 .withArgument("--game=\"Fallout3\"");
 }
@@ -222,7 +223,13 @@ int GameFallout3::nexusGameID() const
   return 120;
 }
 
+QString GameFallout3::getLauncherNameAlt() const
+{
+  return "Fallout3Launcher.exe";
+}
+
 QString GameFallout3::getLauncherName() const
 {
   return "FalloutLauncher.exe";
 }
+
